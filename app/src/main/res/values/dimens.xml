@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="login_activity_padding_start_end">12dp</dimen>
+    <dimen name="edittext_margin_bottom">20dp</dimen>
+    <dimen name="login_activity_margin_top">200dp</dimen>
+    <dimen name="fab_margin">12dp</dimen>
+    <dimen name="toolbar_title_margin">32dp</dimen>
+    <dimen name="student_details_activity_margin_top">100dp</dimen>
+    <dimen name="edittext_margin_start_end">12dp</dimen>
+    <dimen name="item_student_padding">16dp</dimen>
+    <dimen name="item_student_elevation">5dp</dimen>
+    <dimen name="margin_between_name_roll">16dp</dimen>
+</resources>
