@@ -6,6 +6,7 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import com.example.tousif.testapp.R
 import com.example.tousif.testapp.StudentDetailsActivity
@@ -30,16 +31,24 @@ class StudentListAdapter(val studentList:List<Student>): RecyclerView.Adapter<St
         val student = studentList[p1]
         p0.studentRollNo.text = student.rollNo.toString()
         p0.studentName.text = student.studentName
-        p0.itemView.setOnClickListener {
-            val intent = Intent(context,StudentDetailsActivity::class.java)
-            intent.putExtra(DataManager.CURRENT_STUDENT_KEY,student)
-            intent.putExtra(DataManager.CURRENT_STUDENTS_INDEX,p1)
-            context?.startActivity(intent)
-        }
     }
 
     inner class StudentListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         val studentRollNo by lazy { itemView.findViewById<TextView>(R.id.tv_roll_no) }
         val studentName by lazy { itemView.findViewById<TextView>(R.id.tv_name) }
+
+        init {
+            itemView.setOnClickListener {
+                val intent = Intent(context,StudentDetailsActivity::class.java)
+                intent.putExtra(DataManager.CURRENT_STUDENT_KEY,studentList[adapterPosition])
+                intent.putExtra(DataManager.CURRENT_STUDENTS_INDEX,adapterPosition)
+                context?.startActivity(intent)
+            }
+
+            itemView.findViewById<ImageView>(R.id.iv_delete_item).setOnClickListener {
+                DataManager.deleteStudentInfo(adapterPosition)
+                notifyDataSetChanged()
+            }
+        }
     }
 }

@@ -19,4 +19,8 @@ object DataManager {
     fun updateStudentInfo(indexOfStudent: Int,studentName: String, studentRollNo: Int){
         studentList[indexOfStudent] = Student(studentName,studentRollNo)
     }
+
+    fun deleteStudentInfo(indexOfStudent: Int){
+        studentList.removeAt(indexOfStudent)
+    }
 }
